@@ -27,8 +27,10 @@ def ReadData(filename='./showcases.2011.csv'):
     return zip(*res)
 
 def Plot(p):
-    x = [item[0] for item in p.Items()]
-    prob = [item[1] for item in p.Items()]
+    x = []
+    prob = []
+    for _x, _prob in sorted(p.Items()):
+        x.append(_x)
+        prob.append(_prob)
     plt.plot(x, prob)
-    plt.legend()
     plt.show()
